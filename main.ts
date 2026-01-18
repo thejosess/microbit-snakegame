@@ -1,4 +1,4 @@
-let pos_x = 2
+let pos_x = 0
 let pos_y = 1
 basic.forever(function () {
     while (true) {
