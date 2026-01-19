@@ -14,8 +14,8 @@ input.onButtonPressed(Button.B, function () {
 })
 let giro_b = 0
 let giro_a = 0
-let direccion = 0
 let pos_x = 0
+let direccion = 0
 let pos_y = 4
 direccion = 1
 let manzana1_y = randint(0, 4)
