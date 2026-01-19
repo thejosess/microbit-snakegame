@@ -25,9 +25,24 @@ if (manzana1_x == pos_x && manzana1_y == pos_y) {
     manzana1_x = randint(0, 4)
 }
 led.plot(manzana1_x, manzana1_y)
+let tamaño = 2
 basic.forever(function () {
     while (true) {
         led.plot(pos_x, pos_y)
+        for (let index = 0; index < tamaño; index++) {
+            if (direccion == 1) {
+                led.plot(pos_x, pos_y - 1)
+            }
+            if (direccion == 2) {
+                led.plot(pos_x - 1, pos_y)
+            }
+            if (direccion == 3) {
+                led.plot(pos_x, pos_y + 1)
+            }
+            if (direccion == 4) {
+                led.plot(pos_x + 1, pos_y)
+            }
+        }
         control.waitMicros(1000000)
         basic.clearScreen()
         led.plot(manzana1_x, manzana1_y)
@@ -48,16 +63,20 @@ basic.forever(function () {
             control.waitMicros(1000000)
         }
         if (pos_x > 4) {
-            pos_x = 4
+            basic.clearScreen()
+            basic.showString("GAME OVER")
         }
         if (pos_y > 4) {
-            pos_y = 4
+            basic.clearScreen()
+            basic.showString("GAME OVER")
         }
         if (pos_y < 0) {
-            pos_y = 0
+            basic.clearScreen()
+            basic.showString("GAME OVER")
         }
         if (pos_x < 0) {
-            pos_x = 0
+            basic.showString("GAME OVER")
+            basic.clearScreen()
         }
     }
 })
