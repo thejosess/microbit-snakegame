@@ -29,6 +29,13 @@ let tamaño = 2
 basic.forever(function () {
     while (true) {
         led.plot(pos_x, pos_y)
+        if (manzana1_x == pos_x && manzana1_y == pos_y) {
+            tamaño = tamaño + 1
+            manzana1_y = randint(0, 4)
+            manzana1_x = randint(0, 4)
+        } else {
+            led.plot(manzana1_x, manzana1_y)
+        }
         for (let index = 0; index < tamaño; index++) {
             if (direccion == 1) {
                 led.plot(pos_x, pos_y - 1)
@@ -45,7 +52,6 @@ basic.forever(function () {
         }
         control.waitMicros(1000000)
         basic.clearScreen()
-        led.plot(manzana1_x, manzana1_y)
         if (direccion == 4) {
             pos_x = pos_x - 1
             control.waitMicros(1000000)
