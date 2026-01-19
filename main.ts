@@ -18,11 +18,19 @@ let direccion = 0
 let pos_x = 0
 let pos_y = 4
 direccion = 1
+let manzana1_y = randint(0, 4)
+let manzana1_x = randint(0, 4)
+if (manzana1_x == pos_x && manzana1_y == pos_y) {
+    manzana1_y = randint(0, 4)
+    manzana1_x = randint(0, 4)
+}
+led.plot(manzana1_x, manzana1_y)
 basic.forever(function () {
     while (true) {
         led.plot(pos_x, pos_y)
         control.waitMicros(1000000)
         basic.clearScreen()
+        led.plot(manzana1_x, manzana1_y)
         if (direccion == 4) {
             pos_x = pos_x - 1
             control.waitMicros(1000000)
